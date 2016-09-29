@@ -1,0 +1,30 @@
+<div class="table-responsive container">
+            <form action="/congress" method="post">
+              <label>Which congress' bills would you like to see? (ex - 114)</label>
+              <input type="text" name="congress_num" placeholder="Congress No.">
+              <input type="submit" value="Find Bills">
+            </form>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Introduced</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @bills.each do |bill| %>
+                <tr>
+                  <td><%=bill.title%></td>
+                  <td><%=bill.introduced_date%></td>
+                  <td><%=bill.desc%></td>
+                  <td><%=bill.status%></td>
+                  <td><%=bill.link%></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
