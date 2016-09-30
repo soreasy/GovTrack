@@ -1,17 +1,17 @@
 get '/' do
-  redirect '/bills'
+  erb :'/index', layout: false
 end
 
 get '/bills' do
-  @bills = [Bill.create(title: "Title", introduced_date: "date", status: "status", congress_id: 1, sponsor: "sponsor", link: "link", desc: "descrip")]
+  # @bills = [Bill.create(title: "Title", introduced_date: "date", status: "status", congress_id: 1, sponsor: "sponsor", link: "link", desc: "descrip")]
   erb :'/bills/bills'
 end
 
-get '/thingy' do
-  uri = URI('https://www.govtrack.us/api/v2/bill?congress=114')
-  res = Net::HTTP.get(uri)
-  res
-end
+# get '/thingy' do
+#   uri = URI('https://www.govtrack.us/api/v2/bill?congress=114')
+#   res = Net::HTTP.get(uri)
+#   res
+# end
 
 post '/congress' do
   uri = URI('https://www.govtrack.us/api/v2/bill?congress='+params[:congress_num]+'&limit=5')
